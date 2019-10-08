@@ -1,0 +1,13 @@
+Email : N-Queens
+
+Local Search - downhill
+
+* N Queens Modified
+
+INPUTS : 
+	width, W
+	height, H
+	#of queens,Q
+	Blocked Location, BL[]
+
+BLOCKS : it avoid conflict if it stays between blocks in directoin
