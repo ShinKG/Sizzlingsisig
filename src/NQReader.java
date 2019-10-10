@@ -8,6 +8,7 @@ class NQReader{
 	private int noOfQueens;
 	private ArrayList<int[]> blockedBlocks = new ArrayList<>();
 
+	//initiator
 	public NQReader(String path){
 
 		info = new Scanner(path);
@@ -25,7 +26,23 @@ class NQReader{
 			infoBB[1] = Integer.parseInt(blockRaw[1]);
 			blockedBlocks.add(infoBB);
 		}
+	}
 
+	//getters
+	public int getWidth() {
+		return this.width;
+	}
+
+	public int getHeight(){
+		return this.height;
+	}
+
+	public int getNoOfQeens(){
+		return this.noOfQueens;
+	}
+
+	public ArrayList<int[]> getBlockedBlocks(){
+		return this.blockedBlocks;
 	}
 
 }

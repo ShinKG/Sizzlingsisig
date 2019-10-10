@@ -9,5 +9,10 @@ INPUTS :
 	height, H
 	#of queens,Q
 	Blocked Location, BL[]
+	x,y
+	x,y
+	.
+	.
+	.
 
 BLOCKS : it avoid conflict if it stays between blocks in direction
