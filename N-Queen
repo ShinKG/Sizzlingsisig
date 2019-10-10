@@ -10,4 +10,4 @@ INPUTS :
 	#of queens,Q
 	Blocked Location, BL[]
 
-BLOCKS : it avoid conflict if it stays between blocks in directoin
+BLOCKS : it avoid conflict if it stays between blocks in direction
