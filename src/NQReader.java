@@ -1,5 +1,6 @@
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.io.File;
 class NQReader{
 	
 	private Scanner info;
@@ -9,22 +10,17 @@ class NQReader{
 	private ArrayList<int[]> blockedBlocks = new ArrayList<>();
 
 	//initiator
-	public NQReader(String path){
+	public NQReader(String path) throws Exception{
 
-		info = new Scanner(path);
-		this.width = info.nextInt();
-		this.height = info.nextInt();
-		this.noOfQueens = info.nextInt();
+		info = new Scanner(new File(path));
+		this.width = Integer.parseInt(info.nextLine());
+		this.height = Integer.parseInt(info.nextLine());
+		this.noOfQueens = Integer.parseInt(info.nextLine());
 
-		String line;
-		String[] blockRaw;
-		int[] infoBB = new int[2];
-		for(int counter=0;info.hasNextInt();counter++){
-			line = info.nextLine();
-			blockRaw = line.split(",");
-			infoBB[0] = Integer.parseInt(blockRaw[0]);
-			infoBB[1] = Integer.parseInt(blockRaw[1]);
-			blockedBlocks.add(infoBB);
+		String[] splitter;
+		while(info.hasNextLine()){
+			splitter = this.info.nextLine().split(",");
+			this.blockedBlocks.add(new int[]{Integer.parseInt(splitter[0]),Integer.parseInt(splitter[1])});
 		}
 	}
 
