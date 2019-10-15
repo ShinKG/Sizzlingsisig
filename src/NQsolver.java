@@ -1,5 +1,7 @@
 import java.util.ArrayList;
 public class NQsolver {
+    ArrayList<NQnode> frontiers;
+    NQnode currnet;
     public void main(String[] args){
         try{
             run();
@@ -20,7 +22,13 @@ public class NQsolver {
     }
 
     public NQnode findNext(NQnode a){
-        ArrayList<NQnode> candidate;
+        ArrayList<NQnode> candidates;
+
+        String[][]map = a.getMap();
+        ArrayList<int[]> queenList = a.getQueenLocation();
+        ArrayList<int[]> blockList = a.getBlockedBlocks();
+
+        while
 
     }
 }

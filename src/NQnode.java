@@ -115,8 +115,6 @@ public class NQnode {
                 if(map[x][y].equals("B")) break;
             }
 
-            System.out.println("northeast: "+confliction);
-
             //east
             x=queenLocation.get(i)[0];
             y=queenLocation.get(i)[1];
@@ -128,8 +126,6 @@ public class NQnode {
                 }
                 if(map[x][y].equals("B")) break;
             }
-
-            System.out.println("eastern: "+confliction);
 
             //south-east
             x=queenLocation.get(i)[0];
@@ -143,8 +139,6 @@ public class NQnode {
                 if(map[x][y].equals("B")) break;
             }
 
-            System.out.println("SouEast: "+confliction);
-
             //south
             x=queenLocation.get(i)[0];
             y=queenLocation.get(i)[1];
@@ -156,8 +150,6 @@ public class NQnode {
                 }
                 if(map[x][y].equals("B")) break;
             }
-
-            System.out.println("Southern: "+confliction);
 
             //south-west
             x=queenLocation.get(i)[0];
@@ -171,8 +163,6 @@ public class NQnode {
                 if(map[x][y].equals("B")) break;
             }
 
-            System.out.println("SouWest: "+confliction);
-
             //west
             x=queenLocation.get(i)[0];
             y=queenLocation.get(i)[1];
@@ -185,8 +175,6 @@ public class NQnode {
                 if(map[x][y].equals("B")) break;
             }
 
-            System.out.println("Western: "+confliction);
-
             //north-west
             x=queenLocation.get(i)[0];
             y=queenLocation.get(i)[1];
@@ -198,8 +186,6 @@ public class NQnode {
                 }
                 if(map[x][y].equals("B")) break;
             }
-
-            System.out.println("Northwest: "+confliction);
             this.conflict = confliction;
         }
     }
