@@ -5,7 +5,7 @@ public class NodeTester {
         try {
             ArrayList<int[]> blist = new ArrayList<>();
             blist.add(new int[]{1,2});
-            NQnode ex = new NQnode(5,5,7,blist);
+            NQnode ex = new NQnode(5,5,3,blist);
             System.out.print("[");
             for(int i=0;i<ex.getQueenLocation().size();i++){
 
@@ -19,6 +19,8 @@ public class NodeTester {
                     System.out.print(ex.getMap()[j][i]);
                 }
             }
+            ex.findConflict();
+            System.out.println("confliction :"+ ex.getConflict());
         }catch(Exception x){
             x.printStackTrace();
         }

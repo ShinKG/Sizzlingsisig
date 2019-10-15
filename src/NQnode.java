@@ -6,6 +6,7 @@ public class NQnode {
     private int noOfQueens;
     private ArrayList<int[]> blockedBlocks;
     private ArrayList<int[]> queenLocation = new ArrayList<>();
+    private int conflict;
 
     public NQnode(int w, int h, int nOQ, ArrayList<int[]> bB){
         this.parent = null;
@@ -84,6 +85,125 @@ public class NQnode {
         }
     }
 
+    public void findConflict(){
+        int x,y,confliction=0;
+        for(int i=0;i<queenLocation.size();i++){
+
+            //north
+            x=queenLocation.get(i)[0];
+            y=queenLocation.get(i)[1];
+            while(y>0){
+                y--;
+                if(map[x][y].equals("Q")){
+                    confliction++;
+                    break;
+                }
+                if(map[x][y].equals("B")) break;
+            }
+
+            System.out.println("northern: "+confliction);
+
+            //north-east
+            x=queenLocation.get(i)[0];
+            y=queenLocation.get(i)[1];
+            while(y>0&&x<map.length-1){
+                y--;x++;
+                if(map[x][y].equals("Q")){
+                    confliction++;
+                    break;
+                }
+                if(map[x][y].equals("B")) break;
+            }
+
+            System.out.println("northeast: "+confliction);
+
+            //east
+            x=queenLocation.get(i)[0];
+            y=queenLocation.get(i)[1];
+            while(x<map.length-1){
+                x++;
+                if(map[x][y].equals("Q")){
+                    confliction++;
+                    break;
+                }
+                if(map[x][y].equals("B")) break;
+            }
+
+            System.out.println("eastern: "+confliction);
+
+            //south-east
+            x=queenLocation.get(i)[0];
+            y=queenLocation.get(i)[1];
+            while(y<map[x].length-1&&x<map.length-1){
+                y++;x++;
+                if(map[x][y].equals("Q")){
+                    confliction++;
+                    break;
+                }
+                if(map[x][y].equals("B")) break;
+            }
+
+            System.out.println("SouEast: "+confliction);
+
+            //south
+            x=queenLocation.get(i)[0];
+            y=queenLocation.get(i)[1];
+            while(y<map[x].length-1){
+                y++;
+                if(map[x][y].equals("Q")){
+                    confliction++;
+                    break;
+                }
+                if(map[x][y].equals("B")) break;
+            }
+
+            System.out.println("Southern: "+confliction);
+
+            //south-west
+            x=queenLocation.get(i)[0];
+            y=queenLocation.get(i)[1];
+            while(y<map[x].length-1&&x>0){
+                y++;x--;
+                if(map[x][y].equals("Q")){
+                    confliction++;
+                    break;
+                }
+                if(map[x][y].equals("B")) break;
+            }
+
+            System.out.println("SouWest: "+confliction);
+
+            //west
+            x=queenLocation.get(i)[0];
+            y=queenLocation.get(i)[1];
+            while(x>0){
+                x--;
+                if(map[x][y].equals("Q")){
+                    confliction++;
+                    break;
+                }
+                if(map[x][y].equals("B")) break;
+            }
+
+            System.out.println("Western: "+confliction);
+
+            //north-west
+            x=queenLocation.get(i)[0];
+            y=queenLocation.get(i)[1];
+            while(y>0&&x>0){
+                y--;x--;
+                if(map[x][y].equals("Q")){
+                    confliction++;
+                    break;
+                }
+                if(map[x][y].equals("B")) break;
+            }
+
+            System.out.println("Northwest: "+confliction);
+            this.conflict = confliction;
+        }
+    }
+
     //getters
     public NQnode getParent(){
         return this.parent;
@@ -100,6 +220,9 @@ public class NQnode {
     public ArrayList<int[]> getQueenLocation(){
         return this.queenLocation;
     }
+    public int getConflict(){
+        return this.conflict;
+    }
 
     //setters
     public void setParent(NQnode p){
@@ -114,8 +237,8 @@ public class NQnode {
     public void setBlockedBlocks (ArrayList<int[]> blockedBlocks){
         this.blockedBlocks = blockedBlocks;
     }
-    public void setQeenLocation (ArrayList<int[]> qeenLocation){
-        this.queenLocation = qeenLocation;
+    public void setQueenLocation (ArrayList<int[]> queenLocation){
+        this.queenLocation = queenLocation;
     }
 
 }
