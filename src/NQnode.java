@@ -38,8 +38,8 @@ public class NQnode {
         boolean duplicate=false;
 
      for(int i=noOfQueens;i>0;i--){
-         x = placer.nextInt(map.length);System.out.println("x : "+x);
-        y = placer.nextInt(map[0].length);System.out.println("y : "+y);
+         x = placer.nextInt(map.length);
+        y = placer.nextInt(map[0].length);
         //if a queen at the randomized coordination exist, it is duplication
         for(int j=0;j<queenLocation.size();j++){
             if(((queenLocation.get(j)[0]==x)&&(queenLocation.get(j)[1]==y))){
