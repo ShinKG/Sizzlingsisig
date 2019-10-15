@@ -7,12 +7,21 @@ public class NQnode {
     private ArrayList<int[]> blockedBlocks;
     private ArrayList<int[]> queenLocation = new ArrayList<>();
 
-    public NQnode(NQnode p,int w, int h, int nOQ, ArrayList<int[]> bB){
-        this.parent = p;
+    public NQnode(int w, int h, int nOQ, ArrayList<int[]> bB){
+        this.parent = null;
         this.map = new String[w][h];
         this.noOfQueens = nOQ;
         this.blockedBlocks = bB;
         if(randomQueen())System.out.println("queenGened");
+        mapper();
+    }
+
+    public NQnode(NQnode p,int w, int h, int nOQ, ArrayList<int[]> bB, ArrayList<int[]>qL){
+        this.parent = p;
+        this.map = new String[w][h];
+        this.noOfQueens = nOQ;
+        this.blockedBlocks = bB;
+        this.queenLocation = qL;
         mapper();
     }
 

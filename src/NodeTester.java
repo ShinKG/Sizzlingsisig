@@ -5,7 +5,7 @@ public class NodeTester {
         try {
             ArrayList<int[]> blist = new ArrayList<>();
             blist.add(new int[]{1,2});
-            NQnode ex = new NQnode(null,5,5,7,blist);
+            NQnode ex = new NQnode(5,5,7,blist);
             System.out.print("[");
             for(int i=0;i<ex.getQueenLocation().size();i++){
 
