@@ -5,7 +5,7 @@ public class NodeTester {
         try {
             ArrayList<int[]> blist = new ArrayList<>();
             blist.add(new int[]{1,2});
-            NQnode ex = new NQnode(null,5,5,3,blist);
+            NQnode ex = new NQnode(null,5,5,7,blist);
             System.out.print("[");
             for(int i=0;i<ex.getQueenLocation().size();i++){
 
@@ -13,6 +13,12 @@ public class NodeTester {
 
             }
             System.out.print("]");
+            for(int i=0;i<ex.getMap()[0].length;i++){
+                System.out.println();
+                for(int j=0;j<ex.getMap().length;j++){
+                    System.out.print(ex.getMap()[j][i]);
+                }
+            }
         }catch(Exception x){
             x.printStackTrace();
         }

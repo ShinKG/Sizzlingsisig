@@ -13,7 +13,7 @@ public class NQnode {
         this.noOfQueens = nOQ;
         this.blockedBlocks = bB;
         if(randomQueen())System.out.println("queenGened");
-        //mapper();
+        mapper();
     }
 
     /*method for initial placing of the queens
@@ -64,13 +64,13 @@ public class NQnode {
             this.map[queenLocation.get(i)[0]][queenLocation.get(i)[1]] = "Q";
         }
         //Fill BBlocks
-        for(int i=0;i<queenLocation.size();i++){
+        for(int i=0;i<blockedBlocks.size();i++){
             this.map[blockedBlocks.get(i)[0]][blockedBlocks.get(i)[1]] = "B";
         }
         //Fill empty if each block is not B or Q
         for(int i=0;i<map.length;i++){
             for(int j=0;j<map[i].length;j++){
-                if(!(map[i][j].equals("B"))||(map[i][j].equals("Q")))map[i][j] = "E";
+                if(map[i][j]==null)map[i][j] = "E";
             }
         }
     }
@@ -79,7 +79,7 @@ public class NQnode {
     public NQnode getParent(){
         return this.parent;
     }
-    public String[][] map(){
+    public String[][] getMap(){
         return this.map;
     }
     public int getNoOfQueens(){
