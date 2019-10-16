@@ -25,20 +25,20 @@ public class NQsolver {
         ArrayList<int[]> queenList = a.getQueenLocation();
         ArrayList<int[]> blockList = a.getBlockedBlocks();
         ArrayList<String> availMoves = new ArrayList<String>();
-        availMoves.add("N");
-        availMoves.add("NE");
-        availMoves.add("E");
-        availMoves.add("SE");
-        availMoves.add("S");
-        availMoves.add("SW");
-        availMoves.add("W");
-        availMoves.add("NW");
 
         int x,y;
         int[] direction = new int[2];
         for(int i =0; i<queenList.size(); i++){
             direction = queenList.get(i);
-            
+            availMoves.add("N");
+            availMoves.add("NE");
+            availMoves.add("E");
+            availMoves.add("SE");
+            availMoves.add("S");
+            availMoves.add("SW");
+            availMoves.add("W");
+            availMoves.add("NW");
+
             //availmoves remover
             //N-north , NE-NorthEast, E-East, SE-southeast, S-south, SW-Southwest...
             if(direction[0]==0){
@@ -62,7 +62,24 @@ public class NQsolver {
                 availMoves.remove("SW");
             }
 
-        }
+            candidates = expands(availMoves,a,direction);
 
+        }
+    }
+
+    public static ArrayList<NQnode> expands(ArrayList<String> mov,NQnode can,int[] qLoc){
+
+        ArrayList<NQnode> returning = new ArrayList<NQnode>();
+        String[][] d_map= can.getMap();
+        ArrayList<int[]> nextQ = can.getQueenLocation();
+        ArrayList<int[]> nextB = can.getBlockedBlocks();
+
+        for(int i=0; i<mov.size(); i++) {
+            if(mov.get(i).equals("N")){
+                d_map[qLoc[0]][qLoc[1]] = can.getMap()[qLoc[0]][qLoc[1]-1];
+                d_map[qLoc[0]][qLoc[1]-1] = can.getMap()[qLoc[0]][qLoc[1]];
+                returning.add(new NQnode(can,));
+            }
+        }
     }
 }

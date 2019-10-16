@@ -3,9 +3,8 @@ import java.util.ArrayList;
 public class NodeTester {
     public static void main(String[] args){
         try {
-            ArrayList<int[]> blist = new ArrayList<>();
-            blist.add(new int[]{1,2});
-            NQnode ex = new NQnode(5,5,3,blist);
+            NQReader r = new NQReader("information.txt");
+            NQnode ex = new NQnode(r.getWidth(),r.getHeight(),r.getNoOfQeens(),r.getBlockedBlocks());
             System.out.print("[");
             for(int i=0;i<ex.getQueenLocation().size();i++){
 
@@ -20,6 +19,7 @@ public class NodeTester {
                 }
             }
             ex.findConflict();
+            System.out.println();
             System.out.println("confliction :"+ ex.getConflict());
         }catch(Exception x){
             x.printStackTrace();

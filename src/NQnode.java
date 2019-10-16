@@ -101,8 +101,6 @@ public class NQnode {
                 if(map[x][y].equals("B")) break;
             }
 
-            System.out.println("northern: "+confliction);
-
             //north-east
             x=queenLocation.get(i)[0];
             y=queenLocation.get(i)[1];
